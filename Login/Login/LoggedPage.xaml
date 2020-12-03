@@ -7,13 +7,12 @@
              x:Class="Login.LoggedPage" >
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="namee" Text="Welcome, "
+            <Label Text="Welcome, "                  
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="passs" Text="{Binding Name}"                  
+            <Label x:Name="passs" Text="{Binding Name}"                 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

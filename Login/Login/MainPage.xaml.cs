@@ -18,7 +18,7 @@ namespace Login
     public partial class MainPage : ContentPage
     {
         private LogInfo li { get; set; }
-       public string Jmeno { get; set; }
+       public string Name { get; set; }
        
         public MainPage()
         {
@@ -29,6 +29,7 @@ namespace Login
       
         private void butt_Clicked(object sender, EventArgs e)
         {
+            Name = name.Text;
             if (!(pass.Text.Any(char.IsDigit)))
             {
                 DisplayAlert("Neplatné heslo", "Heslo neobsahuje číslo.", "OK");
@@ -37,12 +38,18 @@ namespace Login
             {
                 DisplayAlert("Neplatné heslo", "Heslo nemá požadovanou délku", "OK");
             }
-
-            else 
+            else if (!(pass.Text.Any(char.IsLetterOrDigit))) 
             {
-                Page p = new LoggedPage();
-                Application.Current.MainPage.Navigation.PushAsync(new NavigationPage(p));
-                
+                DisplayAlert("Neplatné heslo", "Hesloneobsahuje speciální znak", "OK");
+            }
+
+            else
+            {
+
+
+                Application.Current.MainPage.Navigation.PushAsync(new LoggedPage(li));
+
+
             }
         }
     }
